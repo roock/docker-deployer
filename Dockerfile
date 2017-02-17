@@ -18,6 +18,7 @@ RUN apt-get update && \
   apt-get install --no-install-recommends -y \
     libmcrypt-dev \
     libbz2-dev \
+    zlib1g-dev \
     openssh-client \
 	rsync \
     sed \
