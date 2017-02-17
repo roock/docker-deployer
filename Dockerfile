@@ -16,6 +16,8 @@ ENV COMPOSER_VERSION 1.3.1
 # Packages
 RUN apt-get update && \
   apt-get install --no-install-recommends -y \
+    libmcrypt-dev \
+    libbz2-dev \
     openssh-client \
 	rsync \
     sed \
