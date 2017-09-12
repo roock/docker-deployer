@@ -1,4 +1,4 @@
-FROM php:7-cli
+FROM php:7.1-cli
 
 MAINTAINER Roman Pertl <roman@pertl.org>
 
@@ -29,12 +29,14 @@ RUN apt-get update && \
     unzip \
     bzip2 \
     wget && \
-  apt-get upgrade -y && \
-  apt-get clean && \
-  rm -r /var/lib/apt/lists/*
+  apt-get upgrade -y
 
 # PHP Extensions
 RUN docker-php-ext-install bcmath mcrypt zip bz2 mbstring pcntl
+
+# Cleanup
+RUN apt-get clean && \
+      rm -r /var/lib/apt/lists/*
 
 # Setup the Composer installer
 RUN curl --max-redirs 3 -o /tmp/composer-setup.php https://getcomposer.org/installer \
