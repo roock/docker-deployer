@@ -11,7 +11,7 @@ VOLUME /root/composer
 ENV PATH "/composer/vendor/bin:$PATH"
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /composer
-ENV COMPOSER_VERSION 1.3.1
+ENV COMPOSER_VERSION 1.5.2
 
 # Packages
 RUN apt-get update && \
@@ -44,5 +44,5 @@ RUN curl --max-redirs 3 -o /tmp/composer-setup.php https://getcomposer.org/insta
 # Install Composer
 RUN php /tmp/composer-setup.php --no-ansi --install-dir=/usr/local/bin --filename=composer --version=${COMPOSER_VERSION} && rm -rf /tmp/composer-setup.php
 
-RUN composer global require deployer/deployer deployer/recipes
+RUN composer global require deployer/deployer:6.0.3 deployer/recipes:6.0.1
 
