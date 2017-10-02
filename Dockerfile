@@ -28,6 +28,9 @@ RUN apt-get update && \
     git \
     unzip \
     bzip2 \
+    libxml2 \
+    libxml2-dev \
+    libxslt1.1 \
     wget && \
   apt-get upgrade -y
 
