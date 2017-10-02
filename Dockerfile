@@ -32,7 +32,7 @@ RUN apt-get update && \
   apt-get upgrade -y
 
 # PHP Extensions
-RUN docker-php-ext-install bcmath mcrypt zip bz2 mbstring pcntl
+RUN docker-php-ext-install bcmath mcrypt zip bz2 mbstring pcntl xml curl
 
 # Cleanup
 RUN apt-get clean && \
