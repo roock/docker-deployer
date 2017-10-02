@@ -25,6 +25,7 @@ RUN apt-get update && \
     ca-certificates \
     php-pear \
     curl \
+    libcurl4-gnutls-dev \
     git \
     unzip \
     bzip2 \
