@@ -49,6 +49,9 @@ RUN curl --max-redirs 3 -o /tmp/composer-setup.php https://getcomposer.org/insta
 
 # Install Composer
 RUN php /tmp/composer-setup.php --no-ansi --install-dir=/usr/local/bin --filename=composer --version=${COMPOSER_VERSION} && rm -rf /tmp/composer-setup.php
+COPY ./set-composer-password.sh /usr/local/bin/set-composer-password.sh
+RUN chmod +x /usr/local/bin/set-composer-password.sh
+
 
 RUN composer global require deployer/deployer:6.0.3 deployer/recipes:6.0.1
 
