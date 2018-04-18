@@ -11,7 +11,7 @@ VOLUME /root/composer
 ENV PATH "/composer/vendor/bin:$PATH"
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /composer
-ENV COMPOSER_VERSION 1.5.2
+ENV COMPOSER_VERSION 1.6.4
 
 # Packages
 RUN apt-get update && \
@@ -23,7 +23,6 @@ RUN apt-get update && \
 	rsync \
     sed \
     ca-certificates \
-    php-pear \
     curl \
     libcurl4-gnutls-dev \
     git \
@@ -36,7 +35,7 @@ RUN apt-get update && \
   apt-get upgrade -y
 
 # PHP Extensions
-RUN docker-php-ext-install bcmath mcrypt zip bz2 mbstring pcntl xml curl
+RUN docker-php-ext-install bcmath mcrypt zip bz2 mbstring pcntl xml curl soap
 
 # Cleanup
 RUN apt-get clean && \
@@ -53,5 +52,5 @@ COPY ./set-composer-password.sh /usr/local/bin/set-composer-password.sh
 RUN chmod +x /usr/local/bin/set-composer-password.sh
 
 
-RUN composer global require deployer/deployer:6.0.3 deployer/recipes:6.0.1
+RUN composer global require deployer/deployer:6.1.0 deployer/recipes:6.0.2
 
